@@ -1,0 +1,26 @@
+{
+  "name": "basic-oauth2",
+  "version": "0.0.1",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "simple-oauth2": "^2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronheath/basic-oauth2.git"
+  },
+  "author": "Aaron Heath <aaron@aaronheath.com> (https://aaronheath.com)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/aaronheath/basic-oauth2/issues"
+  },
+  "homepage": "https://github.com/aaronheath/basic-oauth2#readme"
+}
