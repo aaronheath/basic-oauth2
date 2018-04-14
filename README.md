@@ -2,7 +2,9 @@
 
 A very simple oauth2 Node.js client for use with the Client Credentials flow based upon [simple-oauth2](https://github.com/lelylan/simple-oauth2).
 
-Almost exclusively designed for my personal requirements.
+By calling the http() method the user is able to have an [axios](https://github.com/axios/axios) instance returned with the oauth2 headers pre-defined.
+
+Please be aware this this is almost exclusively designed for my personal requirements doesn't necessarily (easily) support advanced features of these libraries.
 
 ## Installation
 
@@ -37,7 +39,7 @@ Basic oauth supports the following configuration file structure.
 }
 ```
 
-By default the configuation should be placed in a file named `.oauth-config.json` in the root directory of the project.
+By default the configuration should be placed in a file named `.oauth-config.json` in the root directory of the project.
 
 However, an option argument can be supplied ot the `oauthToken()` method (as displayed below), which represents the name of the project / service.
 
@@ -58,17 +60,45 @@ Example (code example in [Example of Usage](#example-of-usage) section):
 const oauth = require('basic-oauth2');
 
 // Without supplied project name (default)
-async function default() {
+async function accessTokenWithoutProjectName() {
     const token = await oauth.oauthToken();
     
     // ...
 }
 
 // With supplied project name
-async function run() {
+async function accessTokenWithProjectName() {
     const token = await oauth.oauthToken('hermes');
     
     // ...
+}
+
+// HTTP call without project name (default)
+async function call() {
+    try {
+        // http is an axios instance
+        const http = await bo.http();
+
+        const response = await http.get('https://api.ahdc.dev/api/test');
+
+        // ...
+    } catch(error) {
+        console.error(error.request);
+    }
+}
+
+// HTTP call with project name
+async function call() {
+    try {
+        // http is an axios instance
+        const http = await bo.http('hermes');
+
+        const response = await http.get('https://api.ahdc.dev/api/test');
+
+        // ...
+    } catch(error) {
+        console.error(error.request);
+    }
 }
 ```
 
@@ -83,7 +113,7 @@ It's highly suggested to add the following entries into your .gitignore file
 
 ## Tests
 
-"One day"
+*One day...*
 
 ## Author
 
@@ -91,4 +121,4 @@ It's highly suggested to add the following entries into your .gitignore file
 
 ## License
 
-Basic oauth is licensed under the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+MIT
