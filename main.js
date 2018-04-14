@@ -1,5 +1,8 @@
+#!/usr/bin/env node
+
 const fs = require('fs');
 const path = require('path');
+const axios = require('axios');
 
 async function getToken(oauth2) {
     try {
@@ -122,4 +125,15 @@ async function oauthToken(service = '') {
     }
 }
 
-module.exports = {oauthToken};
+async function http(service) {
+    const token = await oauthToken(service);
+
+    axios.defaults.headers.common = {
+        'Accept': 'application/json',
+        'Authorization': `${token.token_type} ${token.access_token}`,
+    };
+
+    return axios;
+}
+
+module.exports = {http, oauthToken};
