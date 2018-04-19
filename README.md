@@ -53,6 +53,8 @@ Example (code example in [Example of Usage](#example-of-usage) section):
 * Project / service name supplied
   * Project name: `hermes`
   * Filename: `.oauth-config-hermes.json`
+  
+**Note:** When updating oauth client details be sure to delete any .oauth-token*.json file.
 
 ## Example of Usage
 
