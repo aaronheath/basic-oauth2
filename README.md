@@ -81,7 +81,7 @@ async function call() {
         // http is an axios instance
         const http = await bo.http();
 
-        const response = await http.get('https://api.ahdc.dev/api/test');
+        const response = await http.get('https://example.com/api/test');
 
         // ...
     } catch(error) {
@@ -95,7 +95,7 @@ async function call() {
         // http is an axios instance
         const http = await bo.http('hermes');
 
-        const response = await http.get('https://api.ahdc.dev/api/test');
+        const response = await http.get('https://example.com/api/test');
 
         // ...
     } catch(error) {
